@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #########################################
-# ExtJS_ModelUtility.sh			#
+# model-ninja.sh			#
 # by Miles Matthias			#
 #					#
 # Takes an ExtJS model definition	#

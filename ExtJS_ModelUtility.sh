@@ -11,6 +11,27 @@
 #					#
 #########################################
 
+handleFlag(){
+  flag=$1
+  outFile=$2
+  modelname=$3
+  props=$4
+  types=$5
+
+  if [ $flag == "-c" ]; then
+    echo "Ext.create('$modelname', {" >> $outFile
+      #\n\ttest " >> $outFile
+    
+    for k in $props; do
+      echo "\t$k: ," >> $outFile
+    done
+
+    echo "});" >> $outFile
+  fi
+
+  exit
+}
+
 # Handle invalid arguments
 if [ $# -eq 0 -o $# -eq 2 -o $# -eq 4 -o $# -gt 5 ]
 then
@@ -25,14 +46,15 @@ then
   exit
 fi
 
-# Figure out which argument is the model filename.
+# Parse arguments
 if [ $# -eq 1 ]; then
   modelFN=$1
 elif [ $# -eq 3 ]; then
   modelFN=$3
 elif [ $# -eq 5 ]; then
   modelFN=$5
-fi  
+fi
+
 
 # See if the given model filename exists and has something in it.
 if [ -s $modelFN ]
@@ -43,17 +65,16 @@ else
   exit
 fi
 
+modelname=`cat $modelFN | grep define | awk -F"'" '{print$2}'`
 properties=`cat $modelFN | grep name | awk -F' ' '{print $2}' | awk -F',' '{print $1}' | tr -d \'`
-for i in $properties
-do
-  echo $i
-done
-
-echo
-
 types=`cat $modelFN | grep name | awk -F' ' '{print $4}' | awk -F',' '{print $1}' | tr -d \'}`
-for j in $types
-do
-  echo $j
-done
+
+if [ $# -eq 3 ]; then
+  handleFlag $1 $2 $modelname "$properties" "$types"
+elif [ $# -eq 5 ]; then
+  handleFlag $1 $2 $modelname "$properties" "$types"
+  handleFlag $3 $4 $modelname "$properties" "$types"
+fi
+
+exit
 

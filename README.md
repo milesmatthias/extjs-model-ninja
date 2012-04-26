@@ -35,7 +35,7 @@ And then using the `-c` flag, we do `model-ninja.sh -c Person.create Person.js`,
     	lastName: ,
     	phoneHome: ,
     	note: 
-  	});
+    });
 
 ### About
 

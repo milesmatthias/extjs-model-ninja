@@ -43,5 +43,5 @@ While working with ExtJS, I find myself defining models and then doing the same 
 
 This script will start with those two functions, Ext.create statements and UI forms, but if you would like to see the script be able to do more, please don't hesitate to fork and request a pull. Any and all colaboration is welcome!
 
-See **Issues** for what is currently being worked on.
+See [**Issues**](https://github.com/milesmatthias/extjs-model-ninja/issues) for what is currently being worked on.
 

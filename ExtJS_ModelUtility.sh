@@ -43,3 +43,17 @@ else
   exit
 fi
 
+properties=`cat $modelFN | grep name | awk -F' ' '{print $2}' | awk -F',' '{print $1}' | tr -d \'`
+for i in $properties
+do
+  echo $i
+done
+
+echo
+
+types=`cat $modelFN | grep name | awk -F' ' '{print $4}' | awk -F',' '{print $1}' | tr -d \'}`
+for j in $types
+do
+  echo $j
+done
+

@@ -31,7 +31,45 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-      
+
+      <h3>Example</h3>
+
+      <p>The given model definition, <code>Person.js</code>:</p>
+
+      <pre>
+        Ext.define('App.model.Person', {
+          extend: 'Ext.data.Model',
+          idProperty: 'id',
+          fields: [
+              {name: 'id', type: 'string'},
+              {name: 'creatorID', type: 'string'},
+              {name: 'created', type: 'date'},
+              {name: 'modifierID', type: 'string'},
+              {name: 'modified', type: 'date'},
+              {name: 'firstName', type: 'string'},
+              {name: 'lastName', type: 'string'},
+              {name: 'phoneHome', type: 'string'},
+              {name: 'note', type: 'string'},
+          ]
+        });
+      </pre>
+
+      <p>And then using the <code>-c</code> flag, we do <code>model-ninja.sh -c Person.create Person.js</code>, which outputs the following to <code>Person.create</code>:</p>
+
+      <pre>
+        Ext.create('App.model.Person', {
+          id: ,
+          creatorID: ,
+          created: ,
+          modifierID: ,
+          modified: ,
+          firstName: ,
+          lastName: ,
+          phoneHome: ,
+          note: 
+        });
+      </pre>
+
       <h3>About</h3>
 
 <p>While working with ExtJS, I find myself defining models and then doing the same things over and over again with those models that take up time. 

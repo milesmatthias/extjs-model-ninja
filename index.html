@@ -37,21 +37,21 @@
       <p>The given model definition, <code>Person.js</code>:</p>
 
       <pre>
-Ext.define('App.model.Person', {
-  extend: 'Ext.data.Model',
-  idProperty: 'id',
-  fields: [
-      {name: 'id', type: 'string'},
-      {name: 'creatorID', type: 'string'},
-      {name: 'created', type: 'date'},
-      {name: 'modifierID', type: 'string'},
-      {name: 'modified', type: 'date'},
-      {name: 'firstName', type: 'string'},
-      {name: 'lastName', type: 'string'},
-      {name: 'phoneHome', type: 'string'},
-      {name: 'note', type: 'string'},
-  ]
-});
+  Ext.define('App.model.Person', {
+    extend: 'Ext.data.Model',
+    idProperty: 'id',
+    fields: [
+        {name: 'id', type: 'string'},
+        {name: 'creatorID', type: 'string'},
+        {name: 'created', type: 'date'},
+        {name: 'modifierID', type: 'string'},
+        {name: 'modified', type: 'date'},
+        {name: 'firstName', type: 'string'},
+        {name: 'lastName', type: 'string'},
+        {name: 'phoneHome', type: 'string'},
+        {name: 'note', type: 'string'},
+    ]
+  });
       </pre>
 
       <p>And then using the <code>-c</code> flag, we do <code>model-ninja.sh -c Person.create Person.js</code>, which outputs the following to <code>Person.create</code>:</p>

@@ -19,22 +19,18 @@ then
 fi
 
 # Handle a help argument
-if [ $1 -eq "--help" -o $1 -eq "-h" ]
+if [ $1 == "--help" -o $1 == "-h" ]
 then
   printf "Usage: $0 [-u ui_filename] [-c create_filename] model_filename\n"
   exit
 fi
 
-
 # Figure out which argument is the model filename.
-if [ $# -eq 1 ]
-then
+if [ $# -eq 1 ]; then
   modelFN=$1
-else if [ $# -eq 3 ]
-then
+elif [ $# -eq 3 ]; then
   modelFN=$3
-else if [ $# -eq 5 ]
-then
+elif [ $# -eq 5 ]; then
   modelFN=$5
 fi  
 

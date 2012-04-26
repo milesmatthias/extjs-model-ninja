@@ -23,7 +23,7 @@ handleFlag(){
       #\n\ttest " >> $outFile
     
     for k in $props; do
-      echo "\t$k: ," >> $outFile
+      echo "\t$k: values.$k," >> $outFile
     done
 
     echo "});" >> $outFile

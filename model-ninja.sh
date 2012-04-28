@@ -20,13 +20,24 @@ handleFlag(){
 
   if [ $flag == "-c" ]; then
     echo "Ext.create('$modelname', {" >> $outFile
-      #\n\ttest " >> $outFile
     
     for k in $props; do
       echo "\t$k: values.$k," >> $outFile
     done
 
     echo "});" >> $outFile
+  fi
+
+  if [ $flag == "-u" ]; then
+    echo "{" >> $outFile
+    for i in $props and j in $types; do
+      echo "${props[$i]} is a ${types[$i]}"
+      #echo "\txtype: '$types[i]'," \
+           #"\n\tfieldLabel: 'label'," \
+           #"\n\tname: '$props[i]'" \
+           #"\n},{" >> $outFile
+    done
+    echo "}" >> $outFile
   fi
 
   exit
@@ -59,7 +70,7 @@ fi
 # See if the given model filename exists and has something in it.
 if [ -s $modelFN ]
 then
-  printf "\n"
+  printf ""
 else
   printf "$1 either doesn\'t exist or doesn\'t have any models in it.\n"
   exit

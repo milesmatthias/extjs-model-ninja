@@ -30,12 +30,11 @@ handleFlag(){
 
   if [ $flag == "-u" ]; then
     echo "{" >> $outFile
-    for i in $props and j in $types; do
-      echo "${props[$i]} is a ${types[$i]}"
-      #echo "\txtype: '$types[i]'," \
-           #"\n\tfieldLabel: 'label'," \
-           #"\n\tname: '$props[i]'" \
-           #"\n},{" >> $outFile
+    for i in $props; do
+      echo "\txtype: 'textfield'," \
+           "\n\tfieldLabel: '$i'," \
+           "\n\tname: '$i'" \
+           "\n},{" >> $outFile
     done
     echo "}" >> $outFile
   fi

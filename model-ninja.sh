@@ -45,7 +45,7 @@ handleFlag(){
 # Handle invalid arguments
 if [ $# -eq 0 -o $# -eq 2 -o $# -eq 4 -o $# -gt 5 ]
 then
-  printf "Usage: $0 [-u ui_filename] [-c create_filename] model_filename\n"
+  printf "Usage: model-ninja [-u ui_filename] [-c create_filename] model_filename\n"
   exit
 fi
 
